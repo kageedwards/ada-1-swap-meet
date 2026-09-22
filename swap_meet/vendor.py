@@ -1,4 +1,4 @@
-from item import Item
+from .item import Item
 
 class Vendor:
     """Represents a vendor with an inventory of items"""
