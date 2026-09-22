@@ -54,3 +54,13 @@ class Vendor:
 
         self.swap_items(other_vendor, self.inventory[0], other_vendor.inventory[0])
         return True
+
+    def get_by_category(self, category):
+        """Returns a list of objects in the inventory containing the category"""
+        matching_category = []
+
+        for item in self.inventory:
+            if item.category == category:
+                matching_category.append(item)
+
+        return matching_category
