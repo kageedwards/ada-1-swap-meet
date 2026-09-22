@@ -1,3 +1,5 @@
+from item import Item
+
 class Vendor:
     """Represents a vendor with an inventory of items"""
 
@@ -26,3 +28,16 @@ class Vendor:
                 return item
             
         return None
+
+    def swap_items(self, other_vendor, my_item, their_item):
+        """Removes my_item from the Vendor's inventory, adds to other_vendor inventory"""
+        if their_item not in other_vendor.inventory or my_item not in self.inventory:
+            return False
+        
+        self.inventory.remove(my_item)
+        other_vendor.inventory.remove(their_item)
+
+        self.inventory.append(their_item)
+        other_vendor.inventory.append(my_item)
+
+        return True
