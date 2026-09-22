@@ -49,7 +49,4 @@ def test_removing_not_found_is_none():
 
     result = vendor.remove(item)
 
-    raise Exception("Complete this test according to comments below.")
-    # *********************************************************************
-    # ****** Complete Assert Portion of this test **********
-    # *********************************************************************
+    assert result is None
