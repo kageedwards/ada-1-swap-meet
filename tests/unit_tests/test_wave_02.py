@@ -2,6 +2,20 @@ import pytest
 from swap_meet.vendor import Vendor
 from swap_meet.item import Item
 
+def test_item_check_id_validity_returns_true_for_valid_id():
+    item = Item()
+
+    assert item.check_id_validity(34234)
+    assert item.check_id_validity(12)
+    assert item.check_id_validity(1)
+    assert item.check_id_validity(985690345845)
+
+    assert not item.check_id_validity(0)
+    assert not item.check_id_validity(-1)
+    assert not item.check_id_validity("hello")
+    assert not item.check_id_validity(45.0)
+    assert not item.check_id_validity([])
+
 #@pytest.mark.skip
 def test_items_have_default_uuid_length_id():
     item = Item()
