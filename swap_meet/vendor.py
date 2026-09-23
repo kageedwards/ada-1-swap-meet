@@ -60,7 +60,14 @@ class Vendor:
         matching_category = []
 
         for item in self.inventory:
-            if item.category == category:
+            if item.get_category() == category:
                 matching_category.append(item)
 
         return matching_category
+
+    def get_best_by_category(self, category):
+        """
+        Looks for item in inventory with matching category and highest condition
+        Returns the item, or None if no matches are found.
+        """
+        pass
