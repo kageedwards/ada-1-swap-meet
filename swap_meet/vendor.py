@@ -34,11 +34,11 @@ class Vendor:
         if their_item not in other_vendor.inventory or my_item not in self.inventory:
             return False
         
-        self.inventory.remove(my_item)
-        other_vendor.inventory.remove(their_item)
-
         self.inventory.append(their_item)
+        other_vendor.inventory.remove(their_item)
+        
         other_vendor.inventory.append(my_item)
+        self.inventory.remove(my_item)
 
         return True
 
