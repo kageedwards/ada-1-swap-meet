@@ -70,4 +70,15 @@ class Vendor:
         Looks for item in inventory with matching category and highest condition
         Returns the item, or None if no matches are found.
         """
-        pass
+        def get_max_condition(items):
+            best_item = None
+
+            for item in items:
+                if best_item is None or item.condition > best_item.condition:
+                    best_item = item
+
+            return best_item
+
+        matching_items = self.get_by_category(category)
+
+        return get_max_condition(matching_items)
